@@ -22,6 +22,8 @@ namespace DatabaseLayer
 
         }
 
-       // public DbSet<Client> Clients { get; set; }
+       public DbSet<Flight> Flights { get; set; }
+       public DbSet<User> Users { get; set; }
+       public DbSet<Reservation> Reservations { get; set; }
     }
 }
