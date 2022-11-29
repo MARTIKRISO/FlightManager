@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Security.Cryptography.X509Certificates;
 
 namespace DatabaseLayer
 {
@@ -29,12 +30,15 @@ namespace DatabaseLayer
         [Required]
         public string TicketType { get; set; }
 
+        [Required]
+        public Flight Flight { get; set; }
+
 
         private Reservation()
         {
 
         }  
-        public Reservation(string fname, string mname, string lname, string egn, string email, string phonenum, string nationality, string tickettype)
+        public Reservation(string fname, string mname, string lname, string egn, string email, string phonenum, string nationality, string tickettype, Flight flight)
         {
             ID = Guid.NewGuid().ToString();
             FName = fname;
@@ -45,6 +49,7 @@ namespace DatabaseLayer
             PhoneNum = phonenum;
             Nationality = nationality;
             TicketType = tickettype;
+            Flight = flight;
         }
     }
 }

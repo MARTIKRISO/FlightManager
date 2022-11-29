@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -34,7 +35,11 @@ namespace DatabaseLayer
         public int BusinessTicketCount { get; set; }
 
 
-        private Flight(string fromlocation, string tolocation, DateTime takeofftime, DateTime landingtime, string planetype, string planeid, string pilotname, int normalticketcount, int businessticketcount)
+        private Flight()
+        {
+
+        }
+        public Flight(string fromlocation, string tolocation, DateTime takeofftime, DateTime landingtime, string planetype, string planeid, string pilotname, int normalticketcount, int businessticketcount)
         {
             ID = Guid.NewGuid().ToString();
             FromLocation = fromlocation;
@@ -46,9 +51,6 @@ namespace DatabaseLayer
             PilotName = pilotname;
             NormalTicketCount = normalticketcount;
             BusinessTicketCount = businessticketcount;
-        }
-        public Flight()
-        {
 
         }
     }
